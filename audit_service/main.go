@@ -26,7 +26,7 @@ func main() {
 	}
 
 	const eventSubject = "user:created"
-	_, err = nc.Subscribe(eventSubject, func(msg *nats.Msg) {
+	_, _ = nc.Subscribe(eventSubject, func(msg *nats.Msg) {
 		_ = json.Unmarshal(msg.Data, &user)
 		logrus.WithFields(logrus.Fields{
 			"user_id":   user.ID,
